@@ -1,5 +1,5 @@
 # RS-crimes-visualization
-This project is an visualization of crime data in RS.
+This project shows a visualization of crime data in RS.
 
 ## Installation steps
 1. Install python 3.8: https://www.python.org/downloads/
