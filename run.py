@@ -19,7 +19,7 @@ app.title = "CrimeRS"
 app.layout = html.Div([
 
     dbc.NavbarSimple(
-        brand="Dashboard Criminal do RS",
+        brand="CrimeRS - Dashboard Criminal do Rio Grande do Sul",
         brand_href="#",
         color="#212529",
         dark=True,
