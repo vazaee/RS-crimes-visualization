@@ -103,7 +103,7 @@ app.layout = html.Div([
                     labelClassName='checkbox-crime-label',
                     labelStyle={'margin-right': '0.5rem'},
                 ),
-                dcc.Dropdown(['2011', '2012', '2013', '2014', '2015', '2016'], '2016', id='dropdown-year', style={'margin-top': 15}, clearable=False, searchable=False),
+                dcc.Dropdown(YEARS, YEARS[len(YEARS)-1], id='dropdown-year', style={'margin-top': 15}, clearable=False, searchable=False),
                 dcc.Graph(id='choroplath')
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
