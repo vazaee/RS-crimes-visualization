@@ -21,13 +21,14 @@ def get_time_figs(months, years):
 
 def get_choropleth_fig(crime_by_city, counties):
     crime_by_city['Log Total de crimes'] = np.log10(crime_by_city['Total de crimes'])
+    crime_by_city.loc[crime_by_city['Log Total de crimes'] < 0, 'Log Total de crimes'] = 0
 
     fig = px.choropleth_mapbox(crime_by_city, geojson=counties, locations='index', color='Log Total de crimes',
                                 range_color=(0, 5),
                                 hover_data=['Municipio', 'Total de crimes'],
                                 mapbox_style="open-street-map",
                                 height=700,
-                                color_continuous_scale = ["#2196f3", "#4caf50", "#ffeb3b", "#ff9800", "#f44336", "#7f0000"],
+                                color_continuous_scale = ["#ffffff" ,"#2196f3", "#4caf50", "#ffeb3b", "#ff9800", "#f44336", "#7f0000"],
                                 zoom=6, center = {"lat": -30.4589615, "lon": -53.5902456},
                                 labels={"Log Total de crimes" : "Nível Criminal"},
                                 opacity=0.5)

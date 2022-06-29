@@ -19,7 +19,7 @@ app.title = "CrimeRS"
 app.layout = html.Div([
 
     dbc.NavbarSimple(
-        brand="Visualização de crimes no RS",
+        brand="Dashboard Criminal do RS",
         brand_href="#",
         color="#212529",
         dark=True,
@@ -48,7 +48,7 @@ app.layout = html.Div([
 
         dbc.Card(
             html.Div([
-                html.H2(children='Indicadores Criminais ao longo dos meses (anos acumulados)'),
+                html.H2(children='Indicadores Criminais ao longo dos meses (anos acumulados 2011-2016)'),
                 dcc.Graph(figure=fig4),
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
@@ -103,7 +103,7 @@ app.layout = html.Div([
                     labelClassName='checkbox-crime-label',
                     labelStyle={'margin-right': '0.5rem'},
                 ),
-                dcc.Dropdown(['2011', '2012', '2013', '2014', '2015', '2016'], '2016', id='dropdown-year', style={'margin-top': 15}),
+                dcc.Dropdown(['2011', '2012', '2013', '2014', '2015', '2016'], '2016', id='dropdown-year', style={'margin-top': 15}, clearable=False, searchable=False),
                 dcc.Graph(id='choroplath')
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
