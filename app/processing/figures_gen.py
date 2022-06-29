@@ -1,7 +1,6 @@
 import plotly.express as px
 import numpy as np
 
-
 def get_governor_figs(crimes_by_governor):    
     fig = px.bar(crimes_by_governor, x="Crime", y="Total", color="Governo",
                     hover_name="Governo",

@@ -11,7 +11,7 @@ CRIMES = ['Homicidio Doloso', 'Homicidio Doloso de Transito', 'Furtos',
     'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Extorsao', 'Extorsao Mediante Sequestro', 'Estelionato', 
     'Delitos Relacionados a Corrupcao', 'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']
 
-YEARS = ['2011', '2012', '2013', '2014', '2015', '2016', '2017']
+YEARS = ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']
 
 COLUMNS_EQUALS = ['Municipio', 'Homicidio Doloso', 'Furtos', 'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Estelionato', 
     'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']
@@ -30,8 +30,7 @@ def get_month_data():
           for month in MONTHS}
 
 def get_crimes(years):
-    years = [year[['Municipio', 'Homicidio Doloso', 'Furtos', 'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Estelionato', 
-        'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']] for year in years]
+    years = [year[COLUMNS_EQUALS] for year in years]
     df = pd.concat(years).groupby(['Municipio']).sum().reset_index()
     
     only_values = df.drop(['Municipio'], axis=1)
