@@ -13,21 +13,25 @@ CRIMES = ['Homicidio Doloso', 'Homicidio Doloso de Transito', 'Furtos',
 
 YEARS = ['2011', '2012', '2013', '2014', '2015', '2016']
 
+COLUMNS_EQUALS = ['Municipio', 'Homicidio Doloso', 'Furtos', 'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Estelionato', 
+    'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']
+
 def get_years_data():
     return {str(i) : pd.read_csv(f'app/static/dataset/dataset-by-year/{i}.csv', sep=',', encoding='utf-8') \
-          for i in range(2011, 2017)}
+          for i in range(2011, 2023)}
 
 def get_month_data():
     return {month : pd.read_csv(f'app/static/dataset/dataset-by-month/{month}.csv', sep=',', encoding='utf-8') \
           for month in MONTHS}
 
 def get_crimes(years):
+    years = [year[['Municipio', 'Homicidio Doloso', 'Furtos', 'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Estelionato', 
+        'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']] for year in years]
     df = pd.concat(years).groupby(['Municipio']).sum().reset_index()
+    
     only_values = df.drop(['Municipio'], axis=1)
     crimes_sum = only_values.sum(axis=0)
-    crimes_sum = crimes_sum[['Estelionato','Roubos','Entorpecentes - Posse','Furto de Veiculo', 
-    'Delitos Relacionados a Armas e Municoes','Entorpecentes - Trafico','Roubo de Veiculo', 'Homicidio Doloso', 'Latrocinio']]
-    
+
     return crimes_sum.sort_values(ascending=False)
 
 def get_geo_json():

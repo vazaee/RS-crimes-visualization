@@ -7,9 +7,6 @@ from app.processing.utils import YEARS, CRIMES
 
 df_by_governor = crimes_by_governor()
 over_time = crimes_over_time()   
-    
-fig1, fig2 = get_first_figs(df_by_governor)
-fig3, fig4 = get_time_figs(*over_time)
 
 CITIES = get_cities()
 
@@ -26,22 +23,11 @@ app.layout = html.Div([
     ),
 
     html.Div([
-        # html.H1(children="CrimeRS"),
-    
-        #html.Div([
-        #    html.H2(children='Relação de crimes por mandato de governador'),
-        #    dcc.Graph(figure=fig1),
-        #]),
-
-        #html.Div([
-        #    html.H2(children='Relação de crimes por mandato de governador normalizado'),
-        #    dcc.Graph(figure=fig2),
-        #]),
         
         dbc.Card(
             html.Div([
                 html.H2(children='Indicadores Criminais ao longo dos anos'),
-                dcc.Graph(figure=fig3),
+                dcc.Graph(figure=get_time_figs(*over_time)[0]),
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
         ),
@@ -49,7 +35,7 @@ app.layout = html.Div([
         dbc.Card(
             html.Div([
                 html.H2(children='Indicadores Criminais ao longo dos meses (anos acumulados 2011-2016)'),
-                dcc.Graph(figure=fig4),
+                dcc.Graph(figure=get_time_figs(*over_time)[1]),
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
         ),
@@ -107,7 +93,16 @@ app.layout = html.Div([
                 dcc.Graph(id='choroplath')
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
-        )
+        ),
+
+        dbc.Card(
+            html.Div([
+                html.H2(children='Relação de crimes por mandato de governador'),
+                dcc.Graph(figure=get_governor_figs(df_by_governor)),
+            ]),
+            style={'padding':'20px 50px', 'margin-bottom':20},
+        ),
+        
     ], style={'padding-left': 50, 'padding-right': 50, 'padding-top': 25, 'padding-bottom': 25, 'background-color': '#E5E5E5'})
 ])
 

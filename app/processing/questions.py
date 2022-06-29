@@ -6,14 +6,12 @@ def crimes_by_governor():
     df_dict = get_years_data()
 
     years_tarso = [df_dict['2011'], df_dict['2012'], df_dict['2013'], df_dict['2014']]
-    years_sartori = [df_dict['2015'], df_dict['2016']]
-    # years_leite = [df_dict['2019'], df_dict['2020'], df_dict['2021'], df_dict['2022']]
-    
+    years_sartori = [df_dict['2015'], df_dict['2016'], df_dict['2017'], df_dict['2018']]
+    years_leite = [df_dict['2019'], df_dict['2020'], df_dict['2021'], df_dict['2022']]
+   
     sum_crimes_tarso = get_crimes(years_tarso)
     sum_crimes_sartori = get_crimes(years_sartori) 
-    # sum_crimes_leite = get_crimes(years_leite) 
-    # print("index", sum_crimes_sartori.index)
-    # print("values", type(sum_crimes_sartori.values))
+    sum_crimes_leite = get_crimes(years_leite)
 
     tarso_crimes = pd.DataFrame({'crime':sum_crimes_tarso.index, \
                                     'total':sum_crimes_tarso.values,
@@ -23,11 +21,11 @@ def crimes_by_governor():
                                     'total':sum_crimes_sartori.values,
                                     'governo': 'José Ivo Sartori'})
 
-    # leite_crimes = pd.DataFrame({'crime':sum_crimes_leite.index, \
-    #                                 'total':sum_crimes_leite.values,
-    #                                 'governo': 'Eduardo Leite'})
+    leite_crimes = pd.DataFrame({'crime':sum_crimes_leite.index, \
+                                    'total':sum_crimes_leite.values,
+                                    'governo': 'Eduardo Leite'})
 
-    total = pd.concat([tarso_crimes, sartori_crimes])
+    total = pd.concat([tarso_crimes, sartori_crimes, leite_crimes])
     return total
 
 #Como os indicadores criminais se comportam ao longo do tempo?
@@ -41,6 +39,12 @@ def crimes_over(option):
 
     if(option == 'year'):
         df = get_years_data()
+        df.pop('2017')
+        df.pop('2018')
+        df.pop('2019')
+        df.pop('2020')
+        df.pop('2021')
+        df.pop('2022')
     else:
         df = get_month_data()
     
@@ -52,14 +56,9 @@ def crimes_over(option):
         crimes = pd.DataFrame({'crime':dt.index, \
                                 'total':dt.values,
                                 option: key})
-
-        # crimes['year'] = pd.to_datetime(crimes['year'])
         lst.append(crimes)
 
-    return pd.concat(lst) 
-    #     dt = df_dict[key][['Municípios','Estelionato','Roubos','Entorpecentes - Posse','Furto de Veículo',
-    #     'Delitos Relacionados à Armas e Munições','Entorpecentes - Tráfico', 'Roubo de Veículo', 
-    #     'Homicídio Doloso', 'Latrocínio']].sum()[1:]
+    return pd.concat(lst)
 
 
 #Padrão de crimes em relação aos municipios

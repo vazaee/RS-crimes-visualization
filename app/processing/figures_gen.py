@@ -2,20 +2,20 @@ import plotly.express as px
 import numpy as np
 
 
-def get_first_figs(crimes_by_governor):    
-    fig1 = px.histogram(crimes_by_governor, x="crime", y="total", color="governo",  
-                    barmode='group', height=750)
- 
-    fig2 = px.histogram(crimes_by_governor, x="crime", y="total", color="governo",  
+def get_governor_figs(crimes_by_governor):    
+    fig = px.histogram(crimes_by_governor, x="crime", y="total", color="governo",  
                     barmode='group', height=750, log_y=True)
-
-    return (fig1, fig2)
+    fig.update_layout(
+        yaxis_title="Taxa de ocorrencias"
+    )
+    
+    return fig
 
 def get_time_figs(months, years):
     fig1 = px.line(months, x="year", y="total", color='crime', markers=True,
-        labels=dict(year="Ano", total="Quantidade de crimes", crime="Crime"), height=750)
+        labels=dict(year="Ano", total="Número de ocorrencias", crime="Crime"), height=750)
     fig2 = px.line(years, x="month", y="total", color='crime', markers=True,
-        labels=dict(month="Mês", total="Quantidade de crimes", crime="Crime"), height=750)
+        labels=dict(month="Mês", total="Número de ocorrencias", crime="Crime"), height=750)
     
     return (fig1, fig2)
 
