@@ -37,8 +37,9 @@ def get_choropleth_fig(crime_by_city, counties):
     return fig
 
 def get_bar_fig_cities(cities_years):
-    fig = px.histogram(cities_years, x="Crime", y="Total", color="Municipio", barmode='group', height=750)
-    fig.update_layout(
-        yaxis_title="Número de ocorrencias"
-    )
+    fig = px.bar(
+        cities_years, x="Crime", y="Total", color="Municipio", barmode='group', height=750,
+        hover_name="Municipio", log_y=True,
+        labels={'Total':'Número de ocorrencias'})
+
     return fig
