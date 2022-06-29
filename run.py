@@ -2,7 +2,7 @@ from dash import Dash, dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 from app.processing.figures_gen import *
 from app.processing.questions import *
-from app.processing.utils import YEARS, CRIMES
+from app.processing.utils import YEARS, COLUMNS_EQUALS
 
 
 df_by_governor = crimes_by_governor()
@@ -80,9 +80,9 @@ app.layout = html.Div([
                     id='checkbox-crime',                      # used to identify component in callback
                     options=[
                         {'label': crime, 'value': crime, 'disabled':False}
-                        for crime in CRIMES
+                        for crime in COLUMNS_EQUALS[1:]
                     ],
-                    value=CRIMES,
+                    value=COLUMNS_EQUALS[1:],
                     className='checkbox-crime',
                     inputClassName='checkbox-crime-input',
                     inputStyle={'cursor': 'pointer'},

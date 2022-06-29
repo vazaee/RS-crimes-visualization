@@ -39,7 +39,6 @@ def crimes_over(option):
 
     if(option == 'year'):
         df = get_years_data()
-        df.pop('2017')
         df.pop('2018')
         df.pop('2019')
         df.pop('2020')

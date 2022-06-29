@@ -11,14 +11,19 @@ CRIMES = ['Homicidio Doloso', 'Homicidio Doloso de Transito', 'Furtos',
     'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Extorsao', 'Extorsao Mediante Sequestro', 'Estelionato', 
     'Delitos Relacionados a Corrupcao', 'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']
 
-YEARS = ['2011', '2012', '2013', '2014', '2015', '2016']
+YEARS = ['2011', '2012', '2013', '2014', '2015', '2016', '2017']
 
 COLUMNS_EQUALS = ['Municipio', 'Homicidio Doloso', 'Furtos', 'Furto de Veiculo', 'Roubos', 'Latrocinio', 'Roubo de Veiculo', 'Estelionato', 
     'Delitos Relacionados a Armas e Municoes', 'Entorpecentes - Posse', 'Entorpecentes - Trafico']
 
 def get_years_data():
-    return {str(i) : pd.read_csv(f'app/static/dataset/dataset-by-year/{i}.csv', sep=',', encoding='utf-8') \
-          for i in range(2011, 2023)}
+    df_years = {}
+    for year in range(2011, 2023):
+        df = pd.read_csv(f'app/static/dataset/dataset-by-year/{year}.csv', sep=',', encoding='utf-8')
+        df = df[COLUMNS_EQUALS]
+        df_years[str(year)] = df
+    
+    return df_years
 
 def get_month_data():
     return {month : pd.read_csv(f'app/static/dataset/dataset-by-month/{month}.csv', sep=',', encoding='utf-8') \
