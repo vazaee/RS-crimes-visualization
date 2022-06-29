@@ -3,11 +3,10 @@ import numpy as np
 
 
 def get_governor_figs(crimes_by_governor):    
-    fig = px.histogram(crimes_by_governor, x="crime", y="total", color="governo",  
+    fig = px.bar(crimes_by_governor, x="Crime", y="Total", color="Governo",
+                    hover_name="Governo",
+                    labels={'Total':'Número de ocorrencias'},
                     barmode='group', height=750, log_y=True)
-    fig.update_layout(
-        yaxis_title="Taxa de ocorrencias"
-    )
     
     return fig
 

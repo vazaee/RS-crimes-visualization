@@ -13,17 +13,17 @@ def crimes_by_governor():
     sum_crimes_sartori = get_crimes(years_sartori) 
     sum_crimes_leite = get_crimes(years_leite)
 
-    tarso_crimes = pd.DataFrame({'crime':sum_crimes_tarso.index, \
-                                    'total':sum_crimes_tarso.values,
-                                    'governo': 'Tarso Genro'})
+    tarso_crimes = pd.DataFrame({'Crime':sum_crimes_tarso.index, \
+                                    'Total':sum_crimes_tarso.values,
+                                    'Governo': 'Tarso Genro'})
 
-    sartori_crimes = pd.DataFrame({'crime':sum_crimes_sartori.index, \
-                                    'total':sum_crimes_sartori.values,
-                                    'governo': 'José Ivo Sartori'})
+    sartori_crimes = pd.DataFrame({'Crime':sum_crimes_sartori.index, \
+                                    'Total':sum_crimes_sartori.values,
+                                    'Governo': 'José Ivo Sartori'})
 
-    leite_crimes = pd.DataFrame({'crime':sum_crimes_leite.index, \
-                                    'total':sum_crimes_leite.values,
-                                    'governo': 'Eduardo Leite'})
+    leite_crimes = pd.DataFrame({'Crime':sum_crimes_leite.index, \
+                                    'Total':sum_crimes_leite.values,
+                                    'Governo': 'Eduardo Leite'})
 
     total = pd.concat([tarso_crimes, sartori_crimes, leite_crimes])
     return total
