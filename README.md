@@ -12,11 +12,11 @@ This work addresses the exploration of different interactive visualization techn
 
 | Criminal Indicators by City. | Crime map of Rio Grande do Sul. |
 | :------------------------------- | :------------------------------: |
-| ![03](./images/fig1.png) | ![04](./images/fig1.png) |
+| ![03](./images/fig3.png) | ![04](./images/fig4.png) |
 
 | List of crimes by term of governor. |
 | :------------------------------- |
-| ![05](./images/fig1.png) |
+| ![05](./images/fig5.png) |
 
 ## Installation Steps
 
