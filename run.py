@@ -34,7 +34,7 @@ app.layout = html.Div([
 
         dbc.Card(
             html.Div([
-                html.H2(children='Indicadores Criminais ao longo dos meses (anos acumulados 2011-2016)'),
+                html.H2(children='Indicadores Criminais ao longo dos meses dos anos de 2011 a 2021'),
                 dcc.Graph(figure=get_time_figs(*over_time)[1]),
             ]),
             style={'padding':'20px 50px', 'margin-bottom':20}
