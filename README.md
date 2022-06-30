@@ -55,8 +55,6 @@ This work addresses the exploration of different interactive visualization techn
             </a><a title="Code">💻</a>
         </a>
     </td>
-  <tr>
-  <tr>
     <td align="center">
         <a href="https://github.com/vazaee">
             <img src="https://avatars1.githubusercontent.com/u/26447237?s=400&u=745c8142a5956538c118d3325ed7bfcb5459b600&v=4" width="100px;" alt=""/>
@@ -67,9 +65,7 @@ This work addresses the exploration of different interactive visualization techn
             </a><a title="Design">🎨</a>
         </a>
     </td>
-  <tr>
-  <tr>
-    <td align="center">
+     <td align="center">
         <a href="https://github.com/kinmax">
             <img src="https://avatars.githubusercontent.com/u/19151389?v=4" width="100px;" alt=""/>
             <br />
@@ -79,8 +75,6 @@ This work addresses the exploration of different interactive visualization techn
             </a><a title="Design">🎨</a>
         </a>
     </td>
-  <tr>
-  <tr>
     <td align="center">
         <a href="https://github.com/LuizH12M">
             <img src="https://avatars.githubusercontent.com/u/42075861?v=4" width="100px;" alt=""/>
